@@ -21,16 +21,22 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Capacitor (local AAR)
+        run: npm ci
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install SDK packages
+            - name: Install SDK packages
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
-      - name: Probe capacitor-android versions
-        run: |
-          curl -s "https://repo1.maven.org/maven2/io/ionicframework/capacitor-android/maven-metadata.xml" | grep -oP '(?<=<version>)[^<]+' | tail -5
+
       - name: Build APK (release, debug-signed)
         uses: gradle/gradle-build-action@v3
         with:

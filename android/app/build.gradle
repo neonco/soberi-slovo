@@ -25,5 +25,6 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.webkit:webkit:1.11.0'
-    implementation 'io.ionicframework:capacitor-android:7.0.0'
+    implementation files('../node_modules/@capacitor/android/android/capacitor-android.aar')
+    implementation files('../node_modules/@capacitor/core/android/capacitor.aar')
 }
