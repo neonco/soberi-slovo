@@ -55,9 +55,11 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASS: ${{ secrets.KEY_PASSWORD }}
         run: |
-          $f = "android/app/build.gradle"
-          $txt = Get-Content $f -Raw
-          $sign = @"
+          F="android/app/build.gradle"
+          # заменяем debug-подпись на release
+          sed -i "s/signingConfig signingConfigs.debug/signingConfig signingConfigs.release/" "$F"
+          if ! grep -q "signingConfigs" "$F"; then
+            cat >> "$F" <<EOF
 
           android.signingConfigs {
               release {
@@ -68,13 +70,8 @@ jobs:
               }
           }
           android.buildTypes.release.signingConfig = android.signingConfigs.release
-"@
-          # убираем debug-signing, если есть, и добавляем release-signing
-          $txt = $txt -replace "signingConfig signingConfigs.debug", "signingConfig signingConfigs.release"
-          if ($txt -notmatch "signingConfigs") {
-            $txt += $sign
-          }
-          Set-Content $f $txt -NoNewline
+          EOF
+          fi
 
       - name: Sync config + web assets
         run: npx cap sync android
