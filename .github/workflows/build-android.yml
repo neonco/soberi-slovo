@@ -40,14 +40,14 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
+      - name: Generate Android project
+        run: npx cap add android
+
       - name: Decode release keystore
         env:
           KS_B64: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
           echo "$KS_B64" | base64 -d > android/upload-keystore.jks
-
-      - name: Generate Android project
-        run: npx cap add android
 
       - name: Inject signing config
         env:
