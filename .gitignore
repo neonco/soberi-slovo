@@ -19,3 +19,9 @@ tmp_*
 # Node / сборка
 node_modules/
 dist/
+
+# Android build output
+android/**/build/
+*.apk
+*.aab
+local.properties

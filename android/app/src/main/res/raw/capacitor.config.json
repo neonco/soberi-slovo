@@ -1,0 +1,11 @@
+{
+  "appId": "ru.neonco.soberislovo",
+  "appName": "Собери слово",
+  "server": {
+    "url": "https://neonco.github.io/soberi-slovo/",
+    "cleartext": false
+  },
+  "android": {
+    "backgroundColor": "#f4ede1"
+  }
+}
