@@ -43,11 +43,13 @@ jobs:
       - name: Generate Android project
         run: npx cap add android
 
-      - name: Generate app icons
-        run: python tools/make_icons.py
-
       - name: Sync config + web assets
         run: npx cap sync android
+
+      - name: Generate app icons
+        run: |
+          pip install --quiet pillow
+          python tools/make_icons.py
 
       - name: Build APK (release, debug-signed)
         uses: gradle/gradle-build-action@v3
