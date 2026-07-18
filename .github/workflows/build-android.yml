@@ -54,7 +54,7 @@ jobs:
       - name: Build APK (release, debug-signed)
         uses: gradle/gradle-build-action@v3
         with:
-          gradle-version: 8.9
+          gradle-version: 8.13
           build-root-directory: android
           arguments: assembleRelease
           cache-disabled: true
