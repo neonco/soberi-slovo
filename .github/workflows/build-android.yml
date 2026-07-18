@@ -34,6 +34,7 @@ jobs:
           gradle-version: 8.9
           build-root-directory: android
           arguments: assembleRelease
+          cache-disabled: true
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
