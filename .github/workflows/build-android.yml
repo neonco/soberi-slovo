@@ -28,6 +28,9 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
+      - name: Probe capacitor-android versions
+        run: |
+          curl -s "https://repo1.maven.org/maven2/io/ionicframework/capacitor-android/maven-metadata.xml" | grep -oP '(?<=<version>)[^<]+' | tail -5
       - name: Build APK (release, debug-signed)
         uses: gradle/gradle-build-action@v3
         with:
