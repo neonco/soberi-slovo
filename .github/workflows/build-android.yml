@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'capacitor.config.ts'
+      - 'capacitor.config.json'
       - 'package.json'
       - 'prototype/**'
       - 'content/**'
@@ -40,8 +40,41 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
+      - name: Decode release keystore
+        env:
+          KS_B64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          echo "$KS_B64" | base64 -d > android/upload-keystore.jks
+
       - name: Generate Android project
         run: npx cap add android
+
+      - name: Inject signing config
+        env:
+          KS_PASS: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          $f = "android/app/build.gradle"
+          $txt = Get-Content $f -Raw
+          $sign = @"
+
+          android.signingConfigs {
+              release {
+                  storeFile file('../upload-keystore.jks')
+                  storePassword '$KS_PASS'
+                  keyAlias '$KEY_ALIAS'
+                  keyPassword '$KEY_PASS'
+              }
+          }
+          android.buildTypes.release.signingConfig = android.signingConfigs.release
+"@
+          # убираем debug-signing, если есть, и добавляем release-signing
+          $txt = $txt -replace "signingConfig signingConfigs.debug", "signingConfig signingConfigs.release"
+          if ($txt -notmatch "signingConfigs") {
+            $txt += $sign
+          }
+          Set-Content $f $txt -NoNewline
 
       - name: Sync config + web assets
         run: npx cap sync android
@@ -51,7 +84,7 @@ jobs:
           pip install --quiet pillow
           python tools/make_icons.py
 
-      - name: Build APK (release, debug-signed)
+      - name: Build signed release APK
         uses: gradle/gradle-build-action@v3
         with:
           gradle-version: 8.13

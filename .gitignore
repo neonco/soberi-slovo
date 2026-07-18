@@ -24,4 +24,5 @@ dist/
 android/**/build/
 *.apk
 *.aab
+*.jks
 local.properties
