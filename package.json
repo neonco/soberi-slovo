@@ -8,10 +8,10 @@
     "build:android": "cap build android"
   },
   "devDependencies": {
-    "@capacitor/cli": "^7.0.0"
+    "@capacitor/cli": "^8.0.0"
   },
   "dependencies": {
-    "@capacitor/android": "^7.6.8",
-    "@capacitor/core": "^7.0.0"
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/core": "^8.0.0"
   }
 }
