@@ -1,0 +1,21 @@
+# Секреты
+tools/.yandex-key
+
+# Записи голоса ребёнка — приватно
+samples/
+
+# Python
+__pycache__/
+*.pyc
+.venv*/
+
+# Собранный файл (генерируется из шаблона: python tools/build.py)
+prototype/index.html
+
+# Временное
+tmp_*
+*.tmp
+
+# Node / сборка
+node_modules/
+dist/

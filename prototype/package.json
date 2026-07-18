@@ -1,0 +1,9 @@
+{
+  "name": "soberi-slovo",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Логопедические слоговые карточки по уровням Марковой",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}

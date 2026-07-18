@@ -1,0 +1,1716 @@
+{
+  "schema_version": "1.1",
+  "description": "База слоговых карточек по классификации А.К. Марковой (14 типов слоговой структуры). Адаптировано для детей с ЗПРР/РАС, уровень ОНР 2.",
+  "child_progress": {
+    "current_words": [
+      "мама",
+      "киса",
+      "папа",
+      "баба",
+      "вода",
+      "банан"
+    ],
+    "current_level": 1,
+    "notes": "Банан произносится как 'ба-нан' — смешанная структура, близкая к уровню 4"
+  },
+  "levels": [
+    {
+      "id": "level_1",
+      "markova_type": 1,
+      "name": "Двусложные слова из открытых слогов",
+      "structure": "CV-CV",
+      "difficulty": "current",
+      "status": "mastered",
+      "description": "Самый простой тип. Оба слога открытые (заканчиваются на гласную). Ударение обычно на первом слоге. Текущий уровень дочери.",
+      "words": [
+        {
+          "word": "мама",
+          "syllables": [
+            "ма",
+            "ма"
+          ],
+          "stress": 0,
+          "image": "mother",
+          "category": "family",
+          "status": "mastered"
+        },
+        {
+          "word": "папа",
+          "syllables": [
+            "па",
+            "па"
+          ],
+          "stress": 0,
+          "image": "father",
+          "category": "family",
+          "status": "mastered"
+        },
+        {
+          "word": "баба",
+          "syllables": [
+            "ба",
+            "ба"
+          ],
+          "stress": 0,
+          "image": "grandmother",
+          "category": "family",
+          "status": "mastered"
+        },
+        {
+          "word": "вода",
+          "syllables": [
+            "во",
+            "да"
+          ],
+          "stress": 1,
+          "image": "water",
+          "category": "food",
+          "status": "mastered"
+        },
+        {
+          "word": "киса",
+          "syllables": [
+            "ки",
+            "са"
+          ],
+          "stress": 0,
+          "image": "cat",
+          "category": "animals",
+          "status": "mastered"
+        },
+        {
+          "word": "кака",
+          "syllables": [
+            "ка",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "poop",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "пипи",
+          "syllables": [
+            "пи",
+            "пи"
+          ],
+          "stress": 0,
+          "image": "pee",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "мясо",
+          "syllables": [
+            "мя",
+            "со"
+          ],
+          "stress": 0,
+          "image": "meat",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "нога",
+          "syllables": [
+            "но",
+            "га"
+          ],
+          "stress": 0,
+          "image": "leg",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "рука",
+          "syllables": [
+            "ру",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "hand",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "коза",
+          "syllables": [
+            "ко",
+            "за"
+          ],
+          "stress": 0,
+          "image": "goat",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "сова",
+          "syllables": [
+            "со",
+            "ва"
+          ],
+          "stress": 0,
+          "image": "owl",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "змея",
+          "syllables": [
+            "зме",
+            "я"
+          ],
+          "stress": 0,
+          "image": "snake",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "крыса",
+          "syllables": [
+            "кры",
+            "са"
+          ],
+          "stress": 0,
+          "image": "rat",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "миска",
+          "syllables": [
+            "мис",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "bowl",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "дядя",
+          "syllables": [
+            "дя",
+            "дя"
+          ],
+          "stress": 0,
+          "image": "uncle",
+          "category": "family",
+          "status": "planned"
+        },
+        {
+          "word": "тётя",
+          "syllables": [
+            "тё",
+            "тя"
+          ],
+          "stress": 0,
+          "image": "aunt",
+          "category": "family",
+          "status": "planned"
+        },
+        {
+          "word": "ляля",
+          "syllables": [
+            "ля",
+            "ля"
+          ],
+          "stress": 0,
+          "image": "doll",
+          "category": "toys",
+          "status": "planned"
+        },
+        {
+          "word": "пока",
+          "syllables": [
+            "по",
+            "ка"
+          ],
+          "stress": 1,
+          "image": "bye",
+          "category": "social",
+          "status": "planned"
+        },
+        {
+          "word": "сало",
+          "syllables": [
+            "са",
+            "ло"
+          ],
+          "stress": 0,
+          "image": "lard",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "какао",
+          "syllables": [
+            "ка",
+            "ка",
+            "о"
+          ],
+          "stress": 2,
+          "image": "cocoa",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "рак",
+          "syllables": [
+            "рак"
+          ],
+          "stress": 0,
+          "image": "crayfish",
+          "category": "animals",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_2",
+      "markova_type": 2,
+      "name": "Трёхсложные слова из открытых слогов",
+      "structure": "CV-CV-CV",
+      "difficulty": "next",
+      "status": "learning",
+      "description": "Три открытых слога. Ударение обычно на первом или втором слоге. Следующий шаг после освоения двусложных.",
+      "words": [
+        {
+          "word": "молоко",
+          "syllables": [
+            "мо",
+            "ло",
+            "ко"
+          ],
+          "stress": 2,
+          "image": "milk",
+          "category": "food",
+          "status": "learning"
+        },
+        {
+          "word": "машина",
+          "syllables": [
+            "ма",
+            "ши",
+            "на"
+          ],
+          "stress": 1,
+          "image": "car",
+          "category": "transport",
+          "status": "learning"
+        },
+        {
+          "word": "малина",
+          "syllables": [
+            "ма",
+            "ли",
+            "на"
+          ],
+          "stress": 1,
+          "image": "raspberry",
+          "category": "food",
+          "status": "learning"
+        },
+        {
+          "word": "карета",
+          "syllables": [
+            "ка",
+            "ре",
+            "та"
+          ],
+          "stress": 1,
+          "image": "carriage",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "ворона",
+          "syllables": [
+            "во",
+            "ро",
+            "на"
+          ],
+          "stress": 2,
+          "image": "crow",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "собака",
+          "syllables": [
+            "со",
+            "ба",
+            "ка"
+          ],
+          "stress": 2,
+          "image": "dog",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "кукуруза",
+          "syllables": [
+            "ку",
+            "ку",
+            "ру",
+            "за"
+          ],
+          "stress": 2,
+          "image": "corn",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "вовочка",
+          "syllables": [
+            "во",
+            "воч",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "boy",
+          "category": "family",
+          "status": "planned"
+        },
+        {
+          "word": "мамочка",
+          "syllables": [
+            "ма",
+            "моч",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "mother_affectionate",
+          "category": "family",
+          "status": "planned"
+        },
+        {
+          "word": "голова",
+          "syllables": [
+            "го",
+            "ло",
+            "ва"
+          ],
+          "stress": 2,
+          "image": "head",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "барабан",
+          "syllables": [
+            "ба",
+            "ра",
+            "бан"
+          ],
+          "stress": 2,
+          "image": "drum",
+          "category": "toys",
+          "status": "planned"
+        },
+        {
+          "word": "макака",
+          "syllables": [
+            "ма",
+            "ка",
+            "ка"
+          ],
+          "stress": 2,
+          "image": "macaque",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "какаду",
+          "syllables": [
+            "ка",
+            "ка",
+            "ду"
+          ],
+          "stress": 2,
+          "image": "cockatoo",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "попугай",
+          "syllables": [
+            "по",
+            "пу",
+            "гай"
+          ],
+          "stress": 2,
+          "image": "parrot",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "корова",
+          "syllables": [
+            "ко",
+            "ро",
+            "ва"
+          ],
+          "stress": 1,
+          "image": "cow",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "помидор",
+          "syllables": [
+            "по",
+            "ми",
+            "дор"
+          ],
+          "stress": 2,
+          "image": "tomato",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "огурец",
+          "syllables": [
+            "о",
+            "гу",
+            "рец"
+          ],
+          "stress": 2,
+          "image": "cucumber",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "апельсин",
+          "syllables": [
+            "а",
+            "пель",
+            "син"
+          ],
+          "stress": 2,
+          "image": "orange",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "бутерброд",
+          "syllables": [
+            "бу",
+            "тер",
+            "брод"
+          ],
+          "stress": 2,
+          "image": "sandwich",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "вертолёт",
+          "syllables": [
+            "вер",
+            "то",
+            "лёт"
+          ],
+          "stress": 2,
+          "image": "helicopter",
+          "category": "transport",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_3",
+      "markova_type": 3,
+      "name": "Односложные слова (закрытые слоги)",
+      "structure": "CVC",
+      "difficulty": "next",
+      "status": "learning",
+      "description": "Один закрытый слог. Согласный-гласный-согласный. Часто сложнее двусложных открытых, т.к. требует контроля конечного согласного. Параллельный шаг.",
+      "words": [
+        {
+          "word": "кот",
+          "syllables": [
+            "кот"
+          ],
+          "stress": 0,
+          "image": "cat",
+          "category": "animals",
+          "status": "learning"
+        },
+        {
+          "word": "дом",
+          "syllables": [
+            "дом"
+          ],
+          "stress": 0,
+          "image": "house",
+          "category": "places",
+          "status": "learning"
+        },
+        {
+          "word": "сок",
+          "syllables": [
+            "сок"
+          ],
+          "stress": 0,
+          "image": "juice",
+          "category": "food",
+          "status": "learning"
+        },
+        {
+          "word": "нос",
+          "syllables": [
+            "нос"
+          ],
+          "stress": 0,
+          "image": "nose",
+          "category": "body",
+          "status": "learning"
+        },
+        {
+          "word": "рот",
+          "syllables": [
+            "рот"
+          ],
+          "stress": 0,
+          "image": "mouth",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "сад",
+          "syllables": [
+            "сад"
+          ],
+          "stress": 0,
+          "image": "garden",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "мяч",
+          "syllables": [
+            "мяч"
+          ],
+          "stress": 0,
+          "image": "ball",
+          "category": "toys",
+          "status": "planned"
+        },
+        {
+          "word": "лес",
+          "syllables": [
+            "лес"
+          ],
+          "stress": 0,
+          "image": "forest",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "год",
+          "syllables": [
+            "год"
+          ],
+          "stress": 0,
+          "image": "year",
+          "category": "time",
+          "status": "planned"
+        },
+        {
+          "word": "суп",
+          "syllables": [
+            "суп"
+          ],
+          "stress": 0,
+          "image": "soup",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "сыр",
+          "syllables": [
+            "сыр"
+          ],
+          "stress": 0,
+          "image": "cheese",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "мед",
+          "syllables": [
+            "мед"
+          ],
+          "stress": 0,
+          "image": "honey",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "пёс",
+          "syllables": [
+            "пёс"
+          ],
+          "stress": 0,
+          "image": "dog",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "лук",
+          "syllables": [
+            "лук"
+          ],
+          "stress": 0,
+          "image": "onion",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "шар",
+          "syllables": [
+            "шар"
+          ],
+          "stress": 0,
+          "image": "sphere",
+          "category": "toys",
+          "status": "planned"
+        },
+        {
+          "word": "чай",
+          "syllables": [
+            "чай"
+          ],
+          "stress": 0,
+          "image": "tea",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "бок",
+          "syllables": [
+            "бок"
+          ],
+          "stress": 0,
+          "image": "side",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "пол",
+          "syllables": [
+            "пол"
+          ],
+          "stress": 0,
+          "image": "floor",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "кит",
+          "syllables": [
+            "кит"
+          ],
+          "stress": 0,
+          "image": "whale",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "гусь",
+          "syllables": [
+            "гусь"
+          ],
+          "stress": 0,
+          "image": "goose",
+          "category": "animals",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_4",
+      "markova_type": 4,
+      "name": "Двусложные слова с закрытым слогом на конце",
+      "structure": "CV-CVC",
+      "difficulty": "intermediate",
+      "status": "learning",
+      "description": "Первый слог открытый, второй — закрытый. Банан = ба-нан уже здесь! Усложнение: нужно контролировать конечный согласный.",
+      "words": [
+        {
+          "word": "банан",
+          "syllables": [
+            "ба",
+            "нан"
+          ],
+          "stress": 1,
+          "image": "banana",
+          "category": "food",
+          "status": "mastered"
+        },
+        {
+          "word": "диван",
+          "syllables": [
+            "ди",
+            "ван"
+          ],
+          "stress": 1,
+          "image": "sofa",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "тазик",
+          "syllables": [
+            "та",
+            "зик"
+          ],
+          "stress": 0,
+          "image": "basin",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "котик",
+          "syllables": [
+            "ко",
+            "тик"
+          ],
+          "stress": 0,
+          "image": "kitten",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "ножик",
+          "syllables": [
+            "но",
+            "жик"
+          ],
+          "stress": 0,
+          "image": "knife",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "столик",
+          "syllables": [
+            "сто",
+            "лик"
+          ],
+          "stress": 0,
+          "image": "small_table",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "мячик",
+          "syllables": [
+            "мя",
+            "чик"
+          ],
+          "stress": 0,
+          "image": "small_ball",
+          "category": "toys",
+          "status": "planned"
+        },
+        {
+          "word": "платок",
+          "syllables": [
+            "пла",
+            "ток"
+          ],
+          "stress": 1,
+          "image": "handkerchief",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "короб",
+          "syllables": [
+            "ко",
+            "роб"
+          ],
+          "stress": 1,
+          "image": "box",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "горох",
+          "syllables": [
+            "го",
+            "рох"
+          ],
+          "stress": 1,
+          "image": "peas",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "пирог",
+          "syllables": [
+            "пи",
+            "рог"
+          ],
+          "stress": 1,
+          "image": "pie",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "утюг",
+          "syllables": [
+            "у",
+            "тюг"
+          ],
+          "stress": 1,
+          "image": "iron",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "тапок",
+          "syllables": [
+            "та",
+            "пок"
+          ],
+          "stress": 1,
+          "image": "slipper",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "гараж",
+          "syllables": [
+            "га",
+            "раж"
+          ],
+          "stress": 1,
+          "image": "garage",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "поезд",
+          "syllables": [
+            "по",
+            "езд"
+          ],
+          "stress": 1,
+          "image": "train",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "сапог",
+          "syllables": [
+            "са",
+            "пог"
+          ],
+          "stress": 1,
+          "image": "boot",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "домик",
+          "syllables": [
+            "до",
+            "мик"
+          ],
+          "stress": 0,
+          "image": "house",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "парус",
+          "syllables": [
+            "па",
+            "рус"
+          ],
+          "stress": 0,
+          "image": "sail",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "овощ",
+          "syllables": [
+            "о",
+            "вощ"
+          ],
+          "stress": 1,
+          "image": "vegetable",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "каша",
+          "syllables": [
+            "ка",
+            "ша"
+          ],
+          "stress": 0,
+          "image": "porridge",
+          "category": "food",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_5",
+      "markova_type": 5,
+      "name": "Двусложные слова со стечением согласных в середине",
+      "structure": "CV-CCV",
+      "difficulty": "intermediate",
+      "status": "planned",
+      "description": "В середине слова два согласных подряд. Требует точной координации перехода.",
+      "words": [
+        {
+          "word": "банка",
+          "syllables": [
+            "бан",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "jar",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "ветка",
+          "syllables": [
+            "вет",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "branch",
+          "category": "nature",
+          "status": "planned"
+        },
+        {
+          "word": "киска",
+          "syllables": [
+            "кис",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "kitty",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "лампа",
+          "syllables": [
+            "лам",
+            "па"
+          ],
+          "stress": 0,
+          "image": "lamp",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "кошка",
+          "syllables": [
+            "кош",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "cat_female",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "мышка",
+          "syllables": [
+            "мыш",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "mouse",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "соска",
+          "syllables": [
+            "сос",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "pacifier",
+          "category": "baby",
+          "status": "planned"
+        },
+        {
+          "word": "палка",
+          "syllables": [
+            "пал",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "stick",
+          "category": "nature",
+          "status": "planned"
+        },
+        {
+          "word": "полка",
+          "syllables": [
+            "пол",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "shelf",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "панда",
+          "syllables": [
+            "пан",
+            "да"
+          ],
+          "stress": 0,
+          "image": "panda",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "песок",
+          "syllables": [
+            "пе",
+            "сок"
+          ],
+          "stress": 1,
+          "image": "sand",
+          "category": "nature",
+          "status": "planned"
+        },
+        {
+          "word": "носок",
+          "syllables": [
+            "но",
+            "сок"
+          ],
+          "stress": 1,
+          "image": "sock",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "ботва",
+          "syllables": [
+            "бот",
+            "ва"
+          ],
+          "stress": 1,
+          "image": "tops",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "гнездо",
+          "syllables": [
+            "гнез",
+            "до"
+          ],
+          "stress": 1,
+          "image": "nest",
+          "category": "nature",
+          "status": "planned"
+        },
+        {
+          "word": "птенец",
+          "syllables": [
+            "пте",
+            "нец"
+          ],
+          "stress": 1,
+          "image": "chick",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "самка",
+          "syllables": [
+            "сам",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "female_animal",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "коса",
+          "syllables": [
+            "ко",
+            "са"
+          ],
+          "stress": 1,
+          "image": "braid",
+          "category": "body",
+          "status": "planned"
+        },
+        {
+          "word": "касса",
+          "syllables": [
+            "кас",
+            "са"
+          ],
+          "stress": 0,
+          "image": "cash_register",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "бантик",
+          "syllables": [
+            "бан",
+            "тик"
+          ],
+          "stress": 0,
+          "image": "bow",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "конфета",
+          "syllables": [
+            "кон",
+            "фе",
+            "та"
+          ],
+          "stress": 2,
+          "image": "candy",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "пальто",
+          "syllables": [
+            "паль",
+            "то"
+          ],
+          "stress": 0,
+          "image": "coat",
+          "category": "clothes",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_6",
+      "markova_type": 6,
+      "name": "Двусложные слова из закрытых слогов",
+      "structure": "CVC-CVC",
+      "difficulty": "intermediate_plus",
+      "status": "planned",
+      "description": "Оба слога закрытые. Два согласных на стыке слогов.",
+      "words": [
+        {
+          "word": "компот",
+          "syllables": [
+            "ком",
+            "пот"
+          ],
+          "stress": 1,
+          "image": "compote",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "тюльпан",
+          "syllables": [
+            "тюль",
+            "пан"
+          ],
+          "stress": 1,
+          "image": "tulip",
+          "category": "nature",
+          "status": "planned"
+        },
+        {
+          "word": "бассейн",
+          "syllables": [
+            "бас",
+            "сейн"
+          ],
+          "stress": 0,
+          "image": "pool",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "тортик",
+          "syllables": [
+            "тор",
+            "тик"
+          ],
+          "stress": 0,
+          "image": "small_cake",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "салат",
+          "syllables": [
+            "са",
+            "лат"
+          ],
+          "stress": 1,
+          "image": "salad",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "топор",
+          "syllables": [
+            "то",
+            "пор"
+          ],
+          "stress": 1,
+          "image": "axe",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "карман",
+          "syllables": [
+            "кар",
+            "ман"
+          ],
+          "stress": 1,
+          "image": "pocket",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "горшок",
+          "syllables": [
+            "гор",
+            "шок"
+          ],
+          "stress": 0,
+          "image": "pot",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "поднос",
+          "syllables": [
+            "под",
+            "нос"
+          ],
+          "stress": 0,
+          "image": "tray",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "корка",
+          "syllables": [
+            "кор",
+            "ка"
+          ],
+          "stress": 0,
+          "image": "crust",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "йогурт",
+          "syllables": [
+            "йо",
+            "гурт"
+          ],
+          "stress": 0,
+          "image": "yogurt",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "костюм",
+          "syllables": [
+            "кос",
+            "тюм"
+          ],
+          "stress": 0,
+          "image": "suit",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "мошка",
+          "syllables": [
+            "мош",
+            "ка"
+          ],
+          "stress": 1,
+          "image": "midge",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "портфель",
+          "syllables": [
+            "порт",
+            "фель"
+          ],
+          "stress": 0,
+          "image": "briefcase",
+          "category": "school",
+          "status": "planned"
+        },
+        {
+          "word": "морковь",
+          "syllables": [
+            "мор",
+            "ковь"
+          ],
+          "stress": 0,
+          "image": "carrot",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "конверт",
+          "syllables": [
+            "кон",
+            "верт"
+          ],
+          "stress": 0,
+          "image": "envelope",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "волк",
+          "syllables": [
+            "волк"
+          ],
+          "stress": 0,
+          "image": "wolf",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "мост",
+          "syllables": [
+            "мост"
+          ],
+          "stress": 0,
+          "image": "bridge",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "сорт",
+          "syllables": [
+            "сорт"
+          ],
+          "stress": 0,
+          "image": "grade",
+          "category": "abstract",
+          "status": "planned"
+        },
+        {
+          "word": "пульт",
+          "syllables": [
+            "пульт"
+          ],
+          "stress": 0,
+          "image": "remote",
+          "category": "household",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "level_7",
+      "markova_type": 7,
+      "name": "Трёхсложные слова с закрытым слогом на конце",
+      "structure": "CV-CV-CVC",
+      "difficulty": "advanced",
+      "status": "planned",
+      "description": "Три слога, последний закрытый. Усложнение на конце слова.",
+      "words": [
+        {
+          "word": "бегемот",
+          "syllables": [
+            "бе",
+            "ге",
+            "мот"
+          ],
+          "stress": 2,
+          "image": "hippopotamus",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "телефон",
+          "syllables": [
+            "те",
+            "ле",
+            "фон"
+          ],
+          "stress": 2,
+          "image": "telephone",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "ананас",
+          "syllables": [
+            "а",
+            "на",
+            "нас"
+          ],
+          "stress": 2,
+          "image": "pineapple",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "верблюд",
+          "syllables": [
+            "вер",
+            "блюд"
+          ],
+          "stress": 1,
+          "image": "camel",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "арбуз",
+          "syllables": [
+            "ар",
+            "буз"
+          ],
+          "stress": 1,
+          "image": "watermelon",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "кабачок",
+          "syllables": [
+            "ка",
+            "ба",
+            "чок"
+          ],
+          "stress": 2,
+          "image": "zucchini",
+          "category": "food",
+          "status": "planned"
+        },
+        {
+          "word": "барашек",
+          "syllables": [
+            "ба",
+            "ра",
+            "шек"
+          ],
+          "stress": 2,
+          "image": "lamb",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "коридор",
+          "syllables": [
+            "ко",
+            "ри",
+            "дор"
+          ],
+          "stress": 2,
+          "image": "corridor",
+          "category": "places",
+          "status": "planned"
+        },
+        {
+          "word": "крокодил",
+          "syllables": [
+            "кро",
+            "ко",
+            "дил"
+          ],
+          "stress": 2,
+          "image": "crocodile",
+          "category": "animals",
+          "status": "planned"
+        },
+        {
+          "word": "самолёт",
+          "syllables": [
+            "са",
+            "мо",
+            "лёт"
+          ],
+          "stress": 2,
+          "image": "airplane",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "пароход",
+          "syllables": [
+            "па",
+            "ро",
+            "ход"
+          ],
+          "stress": 2,
+          "image": "steamship",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "карандаш",
+          "syllables": [
+            "кар",
+            "ан",
+            "даш"
+          ],
+          "stress": 2,
+          "image": "pencil",
+          "category": "school",
+          "status": "planned"
+        },
+        {
+          "word": "молоток",
+          "syllables": [
+            "мо",
+            "ло",
+            "ток"
+          ],
+          "stress": 2,
+          "image": "hammer",
+          "category": "household",
+          "status": "planned"
+        },
+        {
+          "word": "парашют",
+          "syllables": [
+            "па",
+            "ра",
+            "шют"
+          ],
+          "stress": 2,
+          "image": "parachute",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "самосвал",
+          "syllables": [
+            "са",
+            "мо",
+            "свал"
+          ],
+          "stress": 2,
+          "image": "dump_truck",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "экскаватор",
+          "syllables": [
+            "эк",
+            "ска",
+            "ва",
+            "тор"
+          ],
+          "stress": 3,
+          "image": "excavator",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "трактор",
+          "syllables": [
+            "трак",
+            "тор"
+          ],
+          "stress": 0,
+          "image": "tractor",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "корабль",
+          "syllables": [
+            "ко",
+            "рабль"
+          ],
+          "stress": 1,
+          "image": "ship",
+          "category": "transport",
+          "status": "planned"
+        },
+        {
+          "word": "халатик",
+          "syllables": [
+            "ха",
+            "ла",
+            "тик"
+          ],
+          "stress": 0,
+          "image": "robe",
+          "category": "clothes",
+          "status": "planned"
+        },
+        {
+          "word": "мармелад",
+          "syllables": [
+            "мар",
+            "ме",
+            "лад"
+          ],
+          "stress": 2,
+          "image": "marmalade",
+          "category": "food",
+          "status": "planned"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "total_levels": 7,
+    "total_words": 180,
+    "target_audience": "Дети 4-6 лет с ЗПРР/РАС, уровень слогового произношения (CV-CV)",
+    "classifications": [
+      {
+        "source": "Маркова А.К.",
+        "types": 14,
+        "used": "1-7 (уровни дошкольника с ОНР 2)"
+      },
+      {
+        "source": "Левина Р.Е.",
+        "levels": "II уровень речевого развития"
+      }
+    ],
+    "categories": [
+      "family",
+      "animals",
+      "food",
+      "body",
+      "household",
+      "toys",
+      "transport",
+      "places",
+      "nature",
+      "clothes",
+      "school",
+      "social",
+      "time",
+      "actions",
+      "baby"
+    ]
+  }
+}
