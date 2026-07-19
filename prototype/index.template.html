@@ -747,17 +747,21 @@ function wordDone(){
     $('slots').children[w.stress]?.classList.add('stress-ok');
   }
 
-  // спокойная награда: мягкое свечение + плавное «Молодец», без конфетти
+  // спокойная награда: мягкое свечение + плавное «Молодец», без конфетти.
+  // «Молодец» ждёт конца зачитывания слова, затем переход к следующему слову
+  // отсчитывается от конца «Молодец» (иначе оно перебивает озвучку слова).
   $('levelBarFill').style.width = `${Math.round((wi+1) / session.length * 100)}%`;
-  setTimeout(()=>speak(w.word), 250);
-  setTimeout(()=>{ if(!done) return; speak('молодец'); }, 900);
-
   const delayMs = Math.max(1000, Math.round(transitionDelay * 1000));
-  setTimeout(()=>{
-    $('mainCard').classList.remove('win-glow');
-    wi++;
-    if(wi >= session.length) showWin(); else loadWord();
-  }, delayMs);
+  speak(w.word, () => {
+    if(!done) return;
+    speak('молодец', () => {
+      setTimeout(()=>{
+        $('mainCard').classList.remove('win-glow');
+        wi++;
+        if(wi >= session.length) showWin(); else loadWord();
+      }, delayMs);
+    });
+  });
 }
 
 function showWin(){
