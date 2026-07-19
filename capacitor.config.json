@@ -1,6 +1,7 @@
 {
   "appId": "ru.neonco.soberislovo",
   "appName": "Собери слово",
+  "appVersion": "1.0.1",
   "webDir": "prototype",
   "server": {
     "url": "https://neonco.github.io/soberi-slovo/",

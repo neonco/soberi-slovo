@@ -2,12 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Собери слово — логопед</title>
 <meta name="theme-color" content="#7BA05B">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Nunito';font-style:normal;font-weight:500 900;font-display:swap;src:url('fonts/nunito.woff2') format('woff2')}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:500 700;font-display:swap;src:url('fonts/quicksand.woff2') format('woff2')}
+</style>
 <script>
 // одноразовая отписка устаревшего Service Worker (оставлен прежними версиями)
 if ('serviceWorker' in navigator) {
@@ -25,7 +26,7 @@ if ('serviceWorker' in navigator) {
   --bg-grain:42 45% 88%;
   --ink:155 35% 18%;        /* насыщенный тёмно-зелёный текст (контраст) */
   --ink-soft:155 22% 32%;
-  --ink-faint:155 16% 45%;
+  --ink-faint:155 20% 38%;
   --hero:122 52% 38%;       /* насыщенный зелёный акцент */
   --hero-soft:122 55% 88%;
   --sky:200 75% 52%;        /* яркий голубой */
@@ -53,7 +54,7 @@ body{
   min-height:100vh; overflow-x:hidden; touch-action:manipulation;
 }
 h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;font-weight:900;letter-spacing:.2px}
-.app-title,.section-title,.level-name,.mode-card .mn,.play-card .pc-title,.win-title,.cat-panel h2{text-wrap:balance}
+.app-title,.section-title,.level-name,.mode-card .mn,.win-title,.cat-panel h2{text-wrap:balance}
 p,li,dd,blockquote{text-wrap:pretty}
 [data-numeric]{font-variant-numeric:tabular-nums}
 button{font-family:inherit}
@@ -72,7 +73,7 @@ img,video{outline:1px solid rgba(60,50,30,.06);outline-offset:-1px}
 
 /* шестерёнка настроек — маленькая, в углу */
 .gear-btn{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:none;background:hsl(var(--card));font-size:22px;cursor:pointer;box-shadow:var(--shadow-1);z-index:var(--z-sticky);transition:transform .15s var(--ease-out),box-shadow .2s}
-.gear-btn:hover{transform:rotate(35deg)}
+@media (hover:hover) and (pointer:fine){ .gear-btn:hover{transform:rotate(35deg)} }
 .gear-btn:active{transform:scale(.92)}
 
 /* строки в панели настроек */
@@ -90,12 +91,14 @@ img,video{outline:1px solid rgba(60,50,30,.06);outline-offset:-1px}
 .settings .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
 .settings label{font-size:14px;font-weight:600;color:hsl(var(--ink))}
 select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-sm);border:2px solid hsl(40 25% 85%);font-size:13px;background:#fff;font-family:var(--font-body)}
-.test-btn{padding:8px 14px;border-radius:16px;border:2px solid hsl(var(--sky));background:hsl(200 60% 96%);color:hsl(200 55% 40%);font-weight:700;font-size:13px;cursor:pointer;transition:transform .12s var(--ease-out),background .2s,color .2s,border-color .2s}
+.test-btn{padding:7px 10px;border-radius:14px;border:2px solid hsl(var(--sky));background:hsl(200 60% 96%);color:hsl(200 55% 40%);font-weight:700;font-size:13px;cursor:pointer;transition:transform .12s var(--ease-out),background .2s,color .2s,border-color .2s}
 .test-btn:active{transform:scale(.96)}
 .test-btn.voice-opt,.test-btn.pic-opt{border-color:hsl(40 25% 85%);background:#fff;color:hsl(var(--ink-faint))}
 .test-btn.voice-opt.on,.test-btn.pic-opt.on{border-color:hsl(var(--sky));background:hsl(200 60% 96%);color:hsl(200 55% 40%)}
-.toggle{position:relative;width:52px;height:28px;background:hsl(40 20% 80%);border-radius:14px;cursor:pointer;transition:background .25s var(--ease-out);flex-shrink:0;border:none}
+@media (max-width:420px){ #voiceGrid{grid-template-columns:1fr 1fr} }
+.toggle{position:relative;width:52px;height:28px;background:hsl(40 20% 80%);border-radius:16px;cursor:pointer;transition:background .25s var(--ease-out);flex-shrink:0;border:none}
 .toggle.on{background:hsl(var(--green))}
+.toggle:active{transform:scale(.94)}
 .toggle::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:transform .25s var(--ease-out);box-shadow:0 1px 3px rgba(60,50,30,.25)}
 .toggle.on::after{transform:translateX(24px)}
 
@@ -107,7 +110,7 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
   display:flex;align-items:center;gap:14px;transition:transform .15s var(--ease-out),box-shadow .2s var(--ease-out);
   animation:cardIn .4s var(--ease-out) both;
 }
-.level-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+@media (hover:hover) and (pointer:fine){ .level-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)} }
 .level-card:active{transform:scale(.98)}
 .level-badge{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px 6px rgba(0,0,0,.12)}
 .level-info{flex:1}
@@ -132,7 +135,7 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 .main-card{
   width:min(72vw,260px);height:min(72vw,260px);border-radius:40px;background:hsl(var(--card));
   display:flex;align-items:center;justify-content:center;font-size:120px;
-  box-shadow:var(--shadow-2);border:8px solid hsl(200 70% 70%);
+  box-shadow:var(--shadow-2);border:8px solid hsl(var(--hero)/.55);
   transition:transform .4s var(--ease-spring); cursor:pointer;
   overflow:hidden;
 }
@@ -142,7 +145,7 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 
 .slots{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;min-height:80px;align-items:center}
 .slot{
-  min-width:120px;height:84px;border:4px dashed hsl(40 20% 75%);border-radius:42px;
+  min-width:120px;height:84px;border:4px dashed hsl(40 20% 75%);border-radius:40px;
   display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;
   color:hsl(40 20% 68%);background:hsl(var(--card));padding:0 22px;cursor:pointer;transition:transform .2s var(--ease-out),border-color .2s,background .2s,color .2s;position:relative;
 }
@@ -156,15 +159,15 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 
 .pills{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;min-height:80px}
 .pill{
-  min-width:110px;height:84px;border-radius:42px;border:none;
+  min-width:110px;height:84px;border-radius:40px;border:none;
   display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;color:#fff;
   cursor:pointer;box-shadow:0 4px 12px rgba(60,50,30,.20);padding:0 26px;user-select:none;
   transition:transform .12s var(--ease-out),opacity .2s var(--ease-out);
 }
 .pill:active{transform:scale(.92)}
 .pill.used{opacity:0;pointer-events:none;transform:scale(.5)}
-.c0{background:hsl(18 78% 62%)}.c1{background:hsl(140 55% 45%)}.c2{background:hsl(200 75% 56%)}
-.c3{background:hsl(280 55% 62%)}.c4{background:hsl(170 55% 45%)}.c5{background:hsl(330 65% 64%)}
+.c0{background:hsl(122 52% 38%)}.c1{background:hsl(125 48% 44%)}.c2{background:hsl(128 50% 50%)}
+.c3{background:hsl(131 46% 56%)}.c4{background:hsl(118 54% 34%)}.c5{background:hsl(134 44% 62%)}
 
 .controls{display:flex;gap:14px;margin-top:4px}
 .ctl{padding:15px 30px;border-radius:28px;font-size:20px;font-weight:800;border:none;cursor:pointer;box-shadow:0 3px 12px rgba(60,50,30,.15);color:#fff;transition:transform .12s var(--ease-out),box-shadow .2s,opacity .2s}
@@ -177,35 +180,30 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 .skip-link{position:absolute;left:-9999px;top:0;background:hsl(var(--hero));color:#fff;padding:10px 18px;border-radius:12px;font-weight:800;z-index:var(--z-toast)}
 .skip-link:focus{left:12px;top:12px}
 .play-card{width:100%;background:linear-gradient(135deg,hsl(var(--hero)/.12),hsl(200 55% 80%/.18));border:2px solid hsl(var(--hero)/.35);border-radius:var(--radius);padding:22px 18px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;box-shadow:var(--shadow-2);transition:transform .15s var(--ease-out),box-shadow .2s var(--ease-out);animation:cardIn .4s var(--ease-out) both}
-.play-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+@media (hover:hover) and (pointer:fine){ .play-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)} }
 .play-card:active{transform:scale(.98)}
 .play-card .pc-emoji{font-size:56px;line-height:1}
 .play-card .pc-title{font-family:var(--font-display);font-size:26px;font-weight:900;color:hsl(var(--hero))}
-.play-card .pc-sub{font-size:14px;font-weight:600;color:hsl(var(--ink-soft))}
-.more-games{width:100%;background:hsl(var(--card));border-radius:var(--radius);box-shadow:var(--shadow-1);border:1px solid hsl(40 30% 88%)}
-.more-games summary{cursor:pointer;font-weight:700;color:hsl(var(--ink-soft));font-size:15px;list-style:none;padding:14px 16px}
-.more-games summary::before{content:'🎲 ';}
-.more-games .mode-grid{padding:0 14px 14px}
+.more-games{width:100%;display:flex;gap:10px}
 .mode-grid{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mode-card{background:hsl(var(--card));border-radius:var(--radius);padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;box-shadow:var(--shadow-1);border:1px solid hsl(40 30% 88%);transition:transform .15s var(--ease-out),box-shadow .2s var(--ease-out);animation:cardIn .4s var(--ease-out) both}
-.mode-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.mode-card{flex:1;background:hsl(var(--card));border-radius:var(--radius);padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;box-shadow:var(--shadow-1);border:1px solid hsl(40 30% 88%);transition:transform .15s var(--ease-out),box-shadow .2s var(--ease-out);animation:cardIn .4s var(--ease-out) both}
+@media (hover:hover) and (pointer:fine){ .mode-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)} }
 .mode-card:active{transform:scale(.97)}
-.mode-card .me{font-size:44px}
-.mode-card .mn{font-size:16px;font-weight:800;color:hsl(var(--ink));text-align:center}
-.mode-card .md{font-size:12px;color:hsl(var(--ink-faint));text-align:center}
+.mode-card .me{font-size:38px}
+.mode-card .mn{font-size:14px;font-weight:800;color:hsl(var(--ink));text-align:center}
 .cat-overlay{position:fixed;inset:0;background:hsla(155,30%,25%,.82);backdrop-filter:blur(3px);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:var(--z-overlay);padding:20px;gap:14px}
 .cat-overlay.on{display:flex;animation:fade .35s var(--ease-out)}
-.cat-panel{background:hsl(var(--card));border-radius:24px;padding:22px;max-width:440px;width:100%;display:flex;flex-direction:column;gap:10px;max-height:80vh;overflow-y:auto;box-shadow:var(--shadow-2)}
+.cat-panel{background:hsl(var(--card));border-radius:24px;padding:22px;max-width:440px;width:100%;display:flex;flex-direction:column;gap:10px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-2)}
 .cat-panel h2{font-size:20px;color:hsl(var(--hero));text-align:center}
 .cat-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:hsl(150 40% 96%);cursor:pointer;border:2px solid transparent;transition:transform .12s var(--ease-out),border-color .2s}
-.cat-item:hover{border-color:hsl(var(--hero-soft))}
+@media (hover:hover) and (pointer:fine){ .cat-item:hover{border-color:hsl(var(--hero-soft))} }
 .cat-item:active{transform:scale(.97)}
 .cat-item .ce{font-size:30px}
 .cat-item .cn{font-size:17px;font-weight:800;flex:1;color:hsl(var(--ink))}
 .cat-item .cc{font-size:12px;color:hsl(var(--ink-faint));font-weight:700}
 .pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
 .pick-card{width:150px;height:150px;border-radius:50%;background:hsl(var(--card));display:flex;align-items:center;justify-content:center;font-size:72px;cursor:pointer;box-shadow:var(--shadow-2);border:5px solid hsl(200 55% 82%);transition:transform .25s var(--ease-spring),border-color .2s,background .2s;overflow:hidden}
-.pick-card:hover{transform:translateY(-3px)}
+@media (hover:hover) and (pointer:fine){ .pick-card:hover{transform:translateY(-3px)} }
 .pick-card:active{transform:scale(.94)}
 .pick-card.good{border-color:hsl(var(--green));background:hsl(140 45% 94%);transform:scale(1.08)}
 .pick-card.bad{border-color:hsl(var(--red));background:hsl(8 70% 95%);animation:shake .4s}
@@ -221,9 +219,9 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 .overlay{position:fixed;inset:0;background:hsla(155,30%,25%,.82);backdrop-filter:blur(3px);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:var(--z-overlay);gap:18px;padding:20px}
 .overlay.on{display:flex;animation:fade .35s var(--ease-out)}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-.win-card{background:hsl(var(--card));border-radius:28px;padding:32px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 12px 40px rgba(40,30,10,.3);max-width:90%;animation:winIn .4s var(--ease-spring) both}
+.win-card{background:hsl(var(--card));border-radius:28px;padding:32px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 12px 40px rgba(40,30,10,.3),0 0 0 4px hsl(var(--green)/.35);max-width:90%;animation:winIn .4s var(--ease-spring) both}
 @keyframes winIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
-.win-emoji{font-size:72px}
+.win-emoji{font-size:72px;filter:drop-shadow(0 0 12px hsl(var(--green)/.6))}
 .win-title{font-size:30px;font-weight:800;color:hsl(var(--hero))}
 .win-words{font-size:15px;color:hsl(var(--ink-soft));text-align:center;line-height:1.6;max-height:120px;overflow-y:auto}
 .win-stars{font-size:38px;letter-spacing:6px}
@@ -249,35 +247,28 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
   <button class="gear-btn" id="gearBtn" aria-label="Настройки взрослого" title="Настройки">⚙️</button>
 
   <div class="app-title">Собери слово</div>
-  <div class="app-sub">слоговые карточки по уровням Марковой</div>
+  <div class="app-sub">слоговые карточки</div>
 
-  <a class="skip-link" href="#levelsList">К уровням ↓</a>
+  <a class="skip-link" href="#levelsList">К уровням слогов ↓</a>
 
   <button class="play-card" id="playCard" role="button" tabindex="0"
     onclick="document.getElementById('levelsList').scrollIntoView({behavior:'smooth'})"
     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('levelsList').scrollIntoView({behavior:'smooth'});}">
     <span class="pc-emoji">🧩</span>
-    <span class="pc-title">Собери слово</span>
-    <span class="pc-sub">слоговые карточки по уровням Марковой</span>
+    <span class="pc-title">К уровням</span>
   </button>
 
-  <details class="more-games" id="moreGames">
-    <summary>Ещё игры</summary>
-    <div class="mode-grid">
-      <div class="mode-card" role="button" tabindex="0" onclick="showPickCategories()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPickCategories();}">
-        <span class="me">👂</span><span class="mn">Покажи!</span>
-        <span class="md">звучит слово — найди карточку</span>
-      </div>
-      <div class="mode-card" role="button" tabindex="0" onclick="startVerbs()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startVerbs();}">
-        <span class="me">🏃</span><span class="mn">Что делает?</span>
-        <span class="md">тренажёр глаголов</span>
-      </div>
-      <div class="mode-card" role="button" tabindex="0" onclick="startYesNo()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startYesNo();}">
-        <span class="me">💬</span><span class="mn">Да или нет?</span>
-        <span class="md">это киса? да / нет</span>
-      </div>
+  <div class="more-games" id="moreGames">
+    <div class="mode-card" role="button" tabindex="0" onclick="showPickCategories()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPickCategories();}">
+      <span class="me">👂</span><span class="mn">Покажи!</span>
     </div>
-  </details>
+    <div class="mode-card" role="button" tabindex="0" onclick="startVerbs()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startVerbs();}">
+      <span class="me">🏃</span><span class="mn">Что делает?</span>
+    </div>
+    <div class="mode-card" role="button" tabindex="0" onclick="startYesNo()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startYesNo();}">
+      <span class="me">💬</span><span class="mn">Да или нет?</span>
+    </div>
+  </div>
 
   <div class="section-title">Уровни слогов</div>
   <div id="levelsList" style="width:100%;display:flex;flex-direction:column;gap:12px"></div>
@@ -301,7 +292,7 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 <div class="screen hidden" id="pickScreen">
   <div class="game-top">
     <button class="back-btn" onclick="goHome()">←</button>
-    <span class="progress-pill" id="pickProgress">1 / 8</span>
+    <button class="progress-pill" id="pickProgress" style="border:none;cursor:pointer" title="выбрать карточку">1 / 8 ▾</button>
     <div style="width:46px"></div>
   </div>
   <div class="level-tag" id="pickTag"></div>
@@ -313,7 +304,7 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 <div class="screen hidden" id="ynScreen">
   <div class="game-top">
     <button class="back-btn" onclick="goHome()">←</button>
-    <span class="progress-pill" id="ynProgress">1 / 8</span>
+    <button class="progress-pill" id="ynProgress" style="border:none;cursor:pointer" title="выбрать карточку">1 / 8 ▾</button>
     <div style="width:46px"></div>
   </div>
   <div class="main-card" id="ynCard" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();if(yn) speakSeq(['это', yn.spoken.word]);}">🐱</div>
@@ -325,71 +316,71 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
 </div>
 
 <!-- ===== ВЫБОР КАТЕГОРИИ «ПОКАЖИ» ===== -->
-<div class="cat-overlay" id="catOverlay">
+<div class="cat-overlay" id="catOverlay" role="dialog" aria-modal="true" aria-label="Выбор категории">
   <div class="cat-panel" id="catPanel"></div>
-  <button class="menu-btn" onclick="document.getElementById('catOverlay').classList.remove('on')">Отмена</button>
+  <button class="menu-btn" onclick="closeCat()">Отмена</button>
 </div>
 
 <!-- ===== ВЫБОР КАРТОЧКИ УРОВНЯ ===== -->
-<div class="cat-overlay" id="wordOverlay">
+<div class="cat-overlay" id="wordOverlay" role="dialog" aria-modal="true" aria-label="Выбор карточки">
   <div class="cat-panel" id="wordPanel"></div>
-  <button class="menu-btn" onclick="document.getElementById('wordOverlay').classList.remove('on')">Закрыть</button>
+  <button class="menu-btn" onclick="closeWord()">Закрыть</button>
 </div>
 
 <!-- ===== НАСТРОЙКИ ВЗРОСЛОГО (overlay) ===== -->
-<div class="cat-overlay" id="settingsOverlay">
+<div class="cat-overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
   <div class="cat-panel" id="settingsPanel">
-    <h2>Настройки</h2>
+    <h2 id="settingsTitle">Настройки</h2>
     <div class="row">
-      <label>Слоги вперемешку</label>
-      <button class="toggle" id="shuffleToggle" aria-label="перемешать слоги"></button>
+      <label for="shuffleToggle">Слоги вперемешку</label>
+      <button class="toggle" id="shuffleToggle" role="switch" aria-checked="false" aria-label="Слоги вперемешку"></button>
     </div>
     <div class="row">
-      <label>Подсветка ударения</label>
-      <button class="toggle on" id="stressToggle" aria-label="подсветка ударения"></button>
+      <label for="stressToggle">Подсветка ударения</label>
+      <button class="toggle on" id="stressToggle" role="switch" aria-checked="true" aria-label="Подсветка ударения"></button>
     </div>
     <div class="row" style="flex-direction:column;align-items:stretch;gap:8px">
-      <label>Диктор</label>
-      <div id="voiceGrid" style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="test-btn voice-opt" data-v="s8">👩‍🦱 Марина</button>
-        <button class="test-btn voice-opt" data-v="s6">👩 Алёна</button>
-        <button class="test-btn voice-opt" data-v="s7">👨 Филипп</button>
-        <button class="test-btn voice-opt" data-v="s9">👱‍♀️ Женя</button>
-        <button class="test-btn voice-opt" data-v="s10">🧑 Оксана</button>
-        <button class="test-btn voice-opt" data-v="s11">🧔 Захар</button>
-        <button class="test-btn voice-opt" data-v="s12">👴 Ермил</button>
+      <label id="voiceLabel">Диктор</label>
+      <div id="voiceGrid" role="group" aria-labelledby="voiceLabel" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+        <button class="test-btn voice-opt" data-v="s8" aria-pressed="false">👩‍🦱 Марина</button>
+        <button class="test-btn voice-opt" data-v="s6" aria-pressed="false">👩 Алёна</button>
+        <button class="test-btn voice-opt" data-v="s7" aria-pressed="false">👨 Филипп</button>
+        <button class="test-btn voice-opt" data-v="s9" aria-pressed="false">👱‍♀️ Женя</button>
+        <button class="test-btn voice-opt" data-v="s10" aria-pressed="false">🧑 Оксана</button>
+        <button class="test-btn voice-opt" data-v="s11" aria-pressed="false">🧔 Захар</button>
+        <button class="test-btn voice-opt" data-v="s12" aria-pressed="false">👴 Ермил</button>
       </div>
     </div>
     <div class="row" style="flex-direction:column;align-items:stretch;gap:6px">
-      <label>Темп речи: <span id="speedVal">1.0</span>×</label>
+      <label for="speedSlider">Темп речи: <span id="speedVal">1.0</span>×</label>
       <div style="display:flex;align-items:center;gap:10px">
-        <span style="font-size:14px">🐌</span>
+        <span style="font-size:14px" aria-hidden="true">🐌</span>
         <input type="range" id="speedSlider" min="0.6" max="1.1" step="0.05" value="1" style="flex:1;accent-color:var(--sky)">
-        <span style="font-size:14px">🐇</span>
+        <span style="font-size:14px" aria-hidden="true">🐇</span>
       </div>
     </div>
     <div class="row" style="flex-direction:column;align-items:stretch;gap:6px">
-      <label>Задержка перехода: <span id="delayVal">4.5</span> сек</label>
+      <label for="delaySlider">Задержка перехода: <span id="delayVal">4.5</span> сек</label>
       <div style="display:flex;align-items:center;gap:10px">
-        <span style="font-size:14px">⚡</span>
+        <span style="font-size:14px" aria-hidden="true">⚡</span>
         <input type="range" id="delaySlider" min="1" max="5" step="0.5" value="4.5" style="flex:1;accent-color:var(--sky)">
-        <span style="font-size:14px">🐢</span>
+        <span style="font-size:14px" aria-hidden="true">🐢</span>
       </div>
     </div>
     <div class="row" style="flex-direction:column;align-items:stretch;gap:8px">
-      <label>Картинки</label>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="test-btn pic-opt" data-p="auto">🤖 Авто</button>
-        <button class="test-btn pic-opt" data-p="emoji">😀 Эмодзи</button>
-        <button class="test-btn pic-opt" data-p="image">🖼 Карточки</button>
+      <label id="picLabel">Картинки</label>
+      <div role="group" aria-labelledby="picLabel" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="test-btn pic-opt" data-p="auto" aria-pressed="false">🤖 Авто</button>
+        <button class="test-btn pic-opt" data-p="emoji" aria-pressed="false">😀 Эмодзи</button>
+        <button class="test-btn pic-opt" data-p="image" aria-pressed="false">🖼 Карточки</button>
       </div>
     </div>
     <div class="row" style="border-top:2px dashed hsl(40 30% 85%);padding-top:12px;margin-top:4px">
-      <label>Сбросить прогресс</label>
+      <label for="resetProgressBtn">Сбросить прогресс</label>
       <button class="test-btn" id="resetProgressBtn" style="color:hsl(8 65% 45%);border-color:hsl(8 65% 62%)">Сбросить</button>
     </div>
   </div>
-  <button class="menu-btn" onclick="document.getElementById('settingsOverlay').classList.remove('on')">Закрыть</button>
+  <button class="menu-btn" onclick="closeSettings()">Закрыть</button>
 </div>
 
 <!-- ===== ФИНАЛ ===== -->
@@ -828,7 +819,9 @@ function showPickCategories(){
     panel.appendChild(el);
   });
   $('catOverlay').classList.add('on');
+  focusFirstIn($('catOverlay'));
 }
+function closeCat(){ $('catOverlay').classList.remove('on'); }
 
 function pickPool(catId){
   const extra = EXTRA.categories.find(c => c.id === catId);
@@ -979,37 +972,37 @@ function onYn(answer){
   }
 }
 
-/* --- выбор конкретной карточки уровня --- */
-function openWordPicker(){
-  if(!session.length) return;
+/* --- выбор конкретной карточки уровня (универсально для всех режимов) --- */
+function openWordPicker(list, currentIdx, onJump){
+  if(!list || !list.length) return;
   const panel = $('wordPanel');
   panel.innerHTML = '<h2>Выбери карточку</h2>';
-  session.forEach((w, idx) => {
+  list.forEach((w, idx) => {
     const el = document.createElement('div');
     el.className = 'cat-item';
     el.setAttribute('role', 'button');
     el.setAttribute('tabindex', '0');
+    const glyph = w.image ? emojiFor(w.image) : (w.emoji || '🖼️');
     const doneMark = statusOf(w) === 'mastered' ? '⭐' : '';
-    el.setAttribute('aria-label', `${w.word}${idx === wi ? ', сейчас' : ''} ${doneMark}`);
-    el.innerHTML = `<span class="ce">${emojiFor(w.image)}</span>
+    el.setAttribute('aria-label', `${w.word}${idx === currentIdx ? ', сейчас' : ''} ${doneMark}`);
+    el.innerHTML = `<span class="ce">${glyph}</span>
       <span class="cn">${w.word}</span>
-      <span class="cc">${idx === wi ? '▶ сейчас' : doneMark}</span>`;
+      <span class="cc">${idx === currentIdx ? '▶ сейчас' : doneMark}</span>`;
     const select = () => {
       $('wordOverlay').classList.remove('on');
-      if(idx !== wi){
-        // прыжок на конкретную карточку: режем сессию от неё до конца,
-        // чтобы завершение блока было честным (не "прошёл 1 из N")
-        session = session.slice(idx);
-        wi = 0;
-        loadWord();
-      }
+      if(idx !== currentIdx && onJump) onJump(idx);
     };
     el.onclick = select;
     el.onkeydown = e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); select(); } };
     panel.appendChild(el);
   });
   $('wordOverlay').classList.add('on');
+  focusFirstIn($('wordOverlay'));
 }
+function closeWord(){ $('wordOverlay').classList.remove('on'); }
+function openLevelPicker(){ openWordPicker(session, wi, idx => { session = session.slice(idx); wi = 0; loadWord(); }); }
+function openPickPicker(){ openWordPicker(pick.pool.slice(0, ROUNDS), pick.round, idx => { pick.round = idx; pickRound(); }); }
+function openYnPicker(){ openWordPicker(yn.pool.slice(0, ROUNDS), yn.round, idx => { yn.round = idx; ynRound(); }); }
 
 function finishMode(){  const stars = (pick && !$('pickScreen').classList.contains('hidden')) ? pick.stars
               : (yn ? yn.stars : 0);
@@ -1036,7 +1029,7 @@ function spawnParticles(){
 }
 
 /* ====== ПРИВЯЗКА UI ====== */
-function setToggleAria(el, on){ el.setAttribute('aria-pressed', String(on)); }
+function setToggleAria(el, on){ el.setAttribute('aria-checked', String(on)); }
 $('shuffleToggle').classList.toggle('on', shuffleOn); setToggleAria($('shuffleToggle'), shuffleOn);
 $('stressToggle').classList.toggle('on', stressOn); setToggleAria($('stressToggle'), stressOn);
 $('shuffleToggle').onclick = e => { shuffleOn=!shuffleOn; e.target.classList.toggle('on',shuffleOn); setToggleAria(e.target, shuffleOn); saveSettings(); };
@@ -1096,8 +1089,40 @@ $('resetProgressBtn').onclick = () => {
 };
 $('backBtn').onclick = goHome;
 $('winMenuBtn').onclick = goHome;
-$('gearBtn').onclick = () => $('settingsOverlay').classList.add('on');
-$('progressPill').onclick = openWordPicker;
+function closeSettings(){ $('settingsOverlay').classList.remove('on'); $('gearBtn').focus(); }
+function focusFirstIn(ov){
+  const f = ov.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  (f[0] || ov).focus();
+}
+function trapFocus(e){
+  const ovs = ['settingsOverlay','catOverlay','wordOverlay'];
+  if(e.key === 'Escape'){
+    if($('settingsOverlay').classList.contains('on')) closeSettings();
+    else if($('catOverlay').classList.contains('on')) closeCat();
+    else if($('wordOverlay').classList.contains('on')) closeWord();
+    return;
+  }
+  if(e.key !== 'Tab') return;
+  const ov = ovs.map(id => $(id)).find(o => o.classList.contains('on'));
+  if(!ov) return;
+  const f = ov.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const list = Array.from(f).filter(el => !el.disabled && el.offsetParent !== null);
+  if(!list.length) return;
+  const first = list[0], last = list[list.length-1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+}
+
+$('gearBtn').onclick = () => {
+  const ov = $('settingsOverlay');
+  ov.classList.add('on');
+  const focusables = ov.querySelectorAll('button, [href], input, select, [tabindex]:not([tabindex="-1"])');
+  (focusables[0] || ov).focus();
+};
+document.addEventListener('keydown', trapFocus);
+$('progressPill').onclick = openLevelPicker;
+$('pickProgress').onclick = openPickPicker;
+$('ynProgress').onclick = openYnPicker;
 $('mainCard').onclick = () => { if(session[wi]) speak(session[wi].word); };
 $('pickHear').onclick = () => { if(pick) announceTarget(); };
 $('ynYes').onclick = () => onYn(true);

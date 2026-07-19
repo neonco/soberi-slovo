@@ -76,6 +76,10 @@ jobs:
       - name: Sync config + web assets
         run: npx cap sync android
 
+      - name: Bump versionCode for store update
+        run: |
+          sed -i -E 's/(versionCode )[0-9]+/\12/' android/app/build.gradle
+
       - name: Generate app icons
         run: |
           pip install --quiet pillow
