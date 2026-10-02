@@ -36,7 +36,7 @@ def save(path, audio, sr):
 
 def run_silero(out, repeats, speaker):
     import torch
-    model, _ = torch.hub.load("snakers4/silero-models", "silero_tts", language="ru", speaker="v5_ru")
+    model, _ = torch.hub.load("snakers4/silero-models", "silero_tts", language="ru", speaker="v5_ru", trust_repo=True)
     rate = {"normal": "medium", "slow": "x-slow"}  # SSML prosody rate
     sr = 48000
     for id_, text in ITEMS:
