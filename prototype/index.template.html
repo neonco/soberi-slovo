@@ -352,14 +352,6 @@ select#voiceSelect{max-width:220px;padding:8px 10px;border-radius:var(--radius-s
       </div>
     </div>
     <div class="row" style="flex-direction:column;align-items:stretch;gap:6px">
-      <label for="speedSlider">Темп речи: <span id="speedVal">1.0</span>×</label>
-      <div style="display:flex;align-items:center;gap:10px">
-        <span style="font-size:14px" aria-hidden="true">🐌</span>
-        <input type="range" id="speedSlider" min="0.6" max="1.1" step="0.05" value="1" style="flex:1;accent-color:var(--sky)">
-        <span style="font-size:14px" aria-hidden="true">🐇</span>
-      </div>
-    </div>
-    <div class="row" style="flex-direction:column;align-items:stretch;gap:6px">
       <label for="delaySlider">Задержка перехода: <span id="delayVal">4.5</span> сек</label>
       <div style="display:flex;align-items:center;gap:10px">
         <span style="font-size:14px" aria-hidden="true">⚡</span>
@@ -444,7 +436,6 @@ let shuffleOn = settings.shuffle === true;   // слоги — по умолча
 let stressOn  = settings.stress  !== false;
 let voiceGen  = settings.voiceGen || 's8'; // Яндекс: s8 Марина(умолчание), s6 Алёна, s7 Филипп, s9 Женя, s10 Оксана, s11 Захар, s12 Ермил
 if(!['s6','s7','s8','s9','s10','s11','s12'].includes(voiceGen)) voiceGen = 's8';
-let speechSpeed = settings.speed || 1.0;   // темп воспроизведения 0.6–1.1
 let transitionDelay = settings.transitionDelay || 4.5; // задержка автоперехода после правильного слова, сек (ОНР: дать осознать)
 let picMode = settings.picMode || 'emoji'; // 'auto' | 'emoji' | 'image'
 
@@ -453,7 +444,7 @@ const progress = loadJSON('sw_progress', {});
 const statusOf = w => progress[w.word] || 'planned';
 
 function saveSettings(){
-  saveJSON('sw_settings', {shuffle:shuffleOn, stress:stressOn, voiceGen, speed:speechSpeed, transitionDelay, picMode});
+  saveJSON('sw_settings', {shuffle:shuffleOn, stress:stressOn, voiceGen, transitionDelay, picMode});
 }
 
 /* картинка слова: images/<слово>.png, если нет — эмодзи. Режим auto = картинка при наличии файла */
@@ -517,7 +508,6 @@ function speak(text, onend){
   const src = audioFile(text);
   const a = new Audio(src);
   currentAudio = a;
-  a.playbackRate = speechSpeed;
 
   const cleanup = () => { if(currentAudio === a) currentAudio = null; };
   a.onended = () => { cleanup(); if(onend) onend(); };
@@ -535,7 +525,7 @@ function speakSeq(parts){
 function ttsFallback(text){
   if(!('speechSynthesis' in window)) return;
   const u = new SpeechSynthesisUtterance(text);
-  u.lang='ru-RU'; u.rate=0.75 * speechSpeed; u.pitch=1.1;
+  u.lang='ru-RU'; u.rate=0.75; u.pitch=1.1;
   const vs = speechSynthesis.getVoices().filter(v => v.lang.toLowerCase().startsWith('ru'));
   if(vs.length) u.voice = vs[0];
   speechSynthesis.speak(u);
@@ -1063,14 +1053,6 @@ function setPicMode(m){
 document.querySelectorAll('.pic-opt').forEach(b =>
   b.onclick = () => setPicMode(b.dataset.p));
 setPicMode(picMode);
-$('speedSlider').value = speechSpeed;
-$('speedVal').textContent = Number(speechSpeed).toFixed(2).replace(/0$/,'');
-$('speedSlider').oninput = e => {
-  speechSpeed = parseFloat(e.target.value);
-  $('speedVal').textContent = speechSpeed.toFixed(2).replace(/0$/,'');
-  saveSettings();
-};
-$('speedSlider').onchange = () => speak('мама');   // сразу слышно новый темп
 $('delaySlider').value = transitionDelay;
 $('delayVal').textContent = Number(transitionDelay).toFixed(1).replace(/\.0$/,'');
 $('delaySlider').oninput = e => {
