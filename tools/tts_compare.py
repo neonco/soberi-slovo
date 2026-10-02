@@ -10,7 +10,9 @@
   python tools/tts_compare.py --engines silero,qwen3,espeech \\
       --ref-audio ref.wav --ref-text "текст образца"      # ref нужен для espeech
 
-Результат: out/tts_compare/<engine>/<id>__<темп>.wav
+Результат: out/tts_compare/<engine>/<id>__<темп>_<повтор>.wav
+Для Silero у слогов (s_*) ещё два варианта: vowel-loop (зацикливание периодов гласной)
+и vowel-letters (повтор гласной буквой в тексте).
 Не проверено на реальном железе: если API модели изменился, правьте нужную функцию.
 """
 import argparse
@@ -27,6 +29,57 @@ ITEMS = [("s_" + t, t) for t in SYLLABLES] + [("w_" + t, t) for t in WORDS] + [(
 TEMPOS = {"normal": 1.0, "slow": 0.6}
 
 
+VOWELS = "аеёиоуыэюя"
+
+
+def stretch_vowel(audio, sr, extra_ms=700):
+    """Удлинить гласную: нормальный слог + зацикливание целых периодов основного тона
+    из устойчивой части гласной (конец слога) с кроссфейдом. Согласный не трогаем."""
+    import numpy as np
+    x = np.asarray(audio, dtype="float32").squeeze()
+    env = np.abs(x)
+    idx = np.where(env > 0.03 * env.max())[0]
+    if len(idx) < sr // 20:
+        return x
+    x = x[idx[0]:idx[-1] + 1]
+    n = len(x)
+    # устойчивый участок гласной: окно 50 мс на ~75% слога
+    c = int(n * 0.75)
+    w = x[max(0, c - sr // 40):c + sr // 40]
+    # период основного тона автокорреляцией (70-400 Гц)
+    lo, hi = sr // 400, sr // 70
+    ac = np.correlate(w, w, "full")[len(w) - 1:]
+    period = lo + int(np.argmax(ac[lo:hi])) if len(ac) > hi else sr // 200
+    # сегмент из целого числа периодов, начало и конец на переходе через ноль
+    k = max(2, (sr // 50) // period)
+    a = c
+    while a < n - 1 and not (x[a - 1] < 0 <= x[a]):
+        a += 1
+    b = min(a + k * period, n - 1)
+    seg = x[a:b]
+    if len(seg) < period:
+        return x
+    reps = max(1, int(extra_ms / 1000 * sr / len(seg)))
+    fade = min(len(seg) // 4, sr // 200)
+    ramp = np.linspace(0, 1, fade, dtype="float32")
+    out = [x[:a]]
+    for _ in range(reps + 1):
+        piece = seg.copy()
+        piece[:fade] *= ramp
+        piece[-fade:] *= ramp[::-1]
+        out.append(piece)
+    out.append(x[b:])
+    return np.concatenate(out)
+
+
+def stretched_text(text, n=5):
+    """Повторить последнюю гласную буквой: ма -> маааааа (проверяем, как модель это читает)."""
+    for i in range(len(text) - 1, -1, -1):
+        if text[i] in VOWELS:
+            return text[:i + 1] + text[i] * (n - 1) + text[i + 1:]
+    return text
+
+
 def save(path, audio, sr):
     import numpy as np
     import soundfile as sf
@@ -37,14 +90,22 @@ def save(path, audio, sr):
 def run_silero(out, repeats, speaker):
     import torch
     model, _ = torch.hub.load("snakers4/silero-models", "silero_tts", language="ru", speaker="v5_ru")
-    rate = {"normal": "medium", "slow": "x-slow"}  # SSML prosody rate
+    rate = {"normal": "medium", "slow": "x-slow"}  # SSML prosody rate: тянет ВСЁ слово
     sr = 48000
+    d = out / "silero"
     for id_, text in ITEMS:
         for tempo in TEMPOS:
             ssml = f'<speak><prosody rate="{rate[tempo]}">{text}</prosody></speak>'
             for i in range(repeats):
                 audio = model.apply_tts(ssml_text=ssml, speaker=speaker, sample_rate=sr)
-                save(out / "silero" / f"{id_}__{tempo}_{i+1}.wav", audio.numpy(), sr)
+                save(d / f"{id_}__{tempo}_{i+1}.wav", audio.numpy(), sr)
+        if id_.startswith("s_"):
+            # варианты «тянем только гласную», только для слогов
+            for i in range(repeats):
+                base = model.apply_tts(text=text, speaker=speaker, sample_rate=sr)
+                save(d / f"{id_}__vowel-loop_{i+1}.wav", stretch_vowel(base.numpy(), sr), sr)
+                letters = model.apply_tts(text=stretched_text(text), speaker=speaker, sample_rate=sr)
+                save(d / f"{id_}__vowel-letters_{i+1}.wav", letters.numpy(), sr)
         print("silero", id_)
 
 
