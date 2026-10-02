@@ -26,4 +26,3 @@ android/**/build/
 *.aab
 *.jks
 local.properties
-out/
