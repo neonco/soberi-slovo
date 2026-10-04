@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
+  # Автозапуск по push отключён (04.10.2026). Чтобы вернуть, добавить:
+  # push:
+  #   branches: [main]
   workflow_dispatch:
 
 permissions:
