@@ -41,6 +41,8 @@ docs/        ← research.md (методика), docs/images/ (новые пак
 
 ## 🔧 Изменение приложения
 
+> Автодеплой на GitHub Pages и автосборка APK отключены, запускаются вручную: GitHub → Actions → нужный workflow → Run workflow. Чтобы вернуть автозапуск, раскомментировать блок `push:` в `.github/workflows/`.
+
 ```bash
 # 1. Править prototype/index.template.html и/или content/*.json
 # 2. Собрать:
