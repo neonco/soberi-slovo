@@ -26,3 +26,6 @@ android/**/build/
 *.aab
 *.jks
 local.properties
+
+# Мастера новых картинок (тяжёлые, только локально)
+prototype/images-v2/
